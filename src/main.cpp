@@ -1,7 +1,12 @@
 #include <GLFW/glfw3.h>
 
-int main(void)
+#include "util.h"
+
+int main(const int argc,char** argv)
 {
+
+    log_argv(argv);
+
     GLFWwindow* window;
 
     /* Initialize the library */
