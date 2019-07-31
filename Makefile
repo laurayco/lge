@@ -18,7 +18,7 @@ LINK_FLAGS = $(addprefix -l,$(OPENGL_LIBS))
 DEBUG ?= false
 
 ifeq ($(DEBUG),true)
-	COMPILE_FLAGS += -g
+	COMPILE_FLAGS += -g -DDEBUG
 	LINK_FLAGS += -g
 else
 	COMPILE_FLAGS += -O
