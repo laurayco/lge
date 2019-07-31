@@ -13,7 +13,17 @@ SRC_ITEMS := $(wildcard $(SRC_FOLDER)/**)
 OBJ_ITEMS := $(patsubst $(SRC_FOLDER)/%.cpp,$(OBJ_FOLDER)/%.o, $(SRC_ITEMS))
 
 COMPILE_FLAGS = -c $(addprefix -I,$(INC_FOLDER))
-LINK_FLAGS = $(addprefix -l,$(OPENGL_LIBS)) -mwindows
+LINK_FLAGS = $(addprefix -l,$(OPENGL_LIBS))
+
+DEBUG ?= false
+
+ifeq ($(DEBUG),true)
+	COMPILE_FLAGS += -g
+	LINK_FLAGS += -g
+else
+	COMPILE_FLAGS += -O
+	LINK_FLAGS += -O -mwindows
+endif
 
 all : $(BINARY_NAME)
 
