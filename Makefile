@@ -1,8 +1,8 @@
 # Makefile
-BUILD_FOLDER = $(PWD)/bin
-OBJ_FOLDER = $(PWD)/obj
-SRC_FOLDER = $(PWD)/src
-INC_FOLDER = $(PWD)/include
+BUILD_FOLDER = ./bin
+OBJ_FOLDER = ./obj
+SRC_FOLDER = ./src
+INC_FOLDER = ./include
 
 PROJECT_NAME = LGE
 BINARY_NAME = $(BUILD_FOLDER)/$(PROJECT_NAME)
@@ -13,7 +13,7 @@ SRC_ITEMS := $(wildcard $(SRC_FOLDER)/**)
 OBJ_ITEMS := $(patsubst $(SRC_FOLDER)/%.cpp,$(OBJ_FOLDER)/%.o, $(SRC_ITEMS))
 
 COMPILE_FLAGS = -c $(addprefix -I,$(INC_FOLDER))
-LINK_FLAGS = $(addprefix -l,$(OPENGL_LIBS))
+LINK_FLAGS = $(addprefix -l,$(OPENGL_LIBS)) -mwindows
 
 all : $(BINARY_NAME)
 
