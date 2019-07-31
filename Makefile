@@ -35,7 +35,9 @@ clean:
 rebuild: clean all
 
 $(BINARY_NAME) : $(OBJ_ITEMS)
+	@mkdir -p $(BUILD_FOLDER)
 	$(CXX) $^ -o $@ $(LINK_FLAGS)
 
 $(OBJ_FOLDER)/%.o : $(SRC_FOLDER)/%.cpp
+	@mkdir -p $(OBJ_FOLDER)
 	$(CXX) $^ -o $@ $(COMPILE_FLAGS)
