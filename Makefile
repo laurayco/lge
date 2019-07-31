@@ -25,8 +25,6 @@ clean:
 rebuild: clean all
 
 $(BINARY_NAME) : $(OBJ_ITEMS)
-	@echo ALL SOURCES: $(SRC_ITEMS)
-	@echo ALL OBJECTS: $(OBJ_ITEMS)
 	$(CXX) $^ -o $@ $(LINK_FLAGS)
 
 $(OBJ_FOLDER)/%.o : $(SRC_FOLDER)/%.cpp
